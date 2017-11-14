@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
 
 -- | Decimal numbers are represented as @m*10^(-e)@ where
 -- @m@ and @e@ are integers.  The exponent @e@ is an unsigned Word8.  Hence
@@ -41,6 +42,7 @@ module Data.Decimal (
 ) where
 
 
+import GHC.Generics
 import Control.DeepSeq
 import Data.Char
 import Data.Ratio
@@ -65,7 +67,7 @@ import Text.ParserCombinators.ReadP
 data DecimalRaw i = Decimal {
       decimalPlaces :: ! Word8,
       decimalMantissa :: ! i}
-                                  deriving (Data,Typeable)
+                                  deriving (Data,Typeable,Generic)
 
 
 -- | Arbitrary precision decimal type.  Programs should do decimal
