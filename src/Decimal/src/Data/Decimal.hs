@@ -27,7 +27,6 @@
 
 
 module Data.Decimal (
-   -- ** Decimal Values
    DecimalRaw (..),
    Decimal,
    realFracToDecimal,
@@ -42,12 +41,11 @@ module Data.Decimal (
 ) where
 
 
-import Control.Monad.Instances ()
 import Control.DeepSeq
 import Data.Char
 import Data.Ratio
 import Data.Word
-import Data.Typeable
+import Data.Data
 import Text.ParserCombinators.ReadP
 
 -- | Raw decimal arithmetic type constructor.  A decimal value consists of an
@@ -67,7 +65,7 @@ import Text.ParserCombinators.ReadP
 data DecimalRaw i = Decimal {
       decimalPlaces :: ! Word8,
       decimalMantissa :: ! i}
-                                  deriving (Typeable)
+                                  deriving (Data,Typeable)
 
 
 -- | Arbitrary precision decimal type.  Programs should do decimal

@@ -4,7 +4,6 @@ import Data.Decimal
 import Data.Ratio
 import Data.Word
 import Test.HUnit
-import Control.Applicative
 
 import Test.QuickCheck
 import Test.Framework as TF (defaultMain, testGroup, Test)
